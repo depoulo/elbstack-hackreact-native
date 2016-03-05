@@ -43,7 +43,7 @@ class MenuContainer extends Component {
 
             <Profile username={this.props.sendbird.user_name} />
 
-            <MenuItem
+            <MenuItemContainer
               key={'MenuChannelsList'}
               text="list channels"
               navTarget='channels'

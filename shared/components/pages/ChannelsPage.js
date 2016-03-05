@@ -29,17 +29,20 @@ class ChannelsPage extends Component {
   }
 
   render() {
-    let interactionsFinishedMarkup = <LoadingIndicator/>
+    let channelContent = <LoadingIndicator/>
 
-    if (this.state.interactionsFinished) {
-      interactionsFinishedMarkup = <Text>Lade Channels</Text>
+    if (this.state.interactionsFinished && !this.props.channels.list) {
+      channelContent = <Text>Lade Channels</Text>
+    } else if (this.props.channels.list) {
+      const channels = this.props.channels.list;
+      channelContent = Object.keys(channels).map(channelId => <Text key={channelId}>{channels[channelId].name}</Text>);
     }
 
     return (
       <View style={styles.container}>
         <ActionBar title="Available Channels"/>
         <ScrollView showsVerticalScrollIndicator={false} keyboardShouldPersistTaps={true}>
-          {interactionsFinishedMarkup}
+          {channelContent}
         </ScrollView>
       </View>
     )
@@ -55,7 +58,9 @@ const styles = {
 
 
 export default connect(
-  null,
+  state => ({
+    channels: state.channels
+  }),
   (dispatch) => {
     return {
       listChannels: () => dispatch(listChannels())
