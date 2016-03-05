@@ -13,7 +13,7 @@ export default class TeamLogo extends Component {
       <View style={styles.container}>
         <Image
           style={styles.image}
-          source={require('../../../assets/Images/react-native.png')} />
+          source={require('../../images/padalese_logo.jpg')} />
         <Text>HackReact Team</Text>
       </View>
     )
@@ -26,6 +26,8 @@ const styles = {
   },
   image: {
     width: 200,
-    height: 100
+    height: 200,
+    borderWidth: 1,
+    borderColor: "white"
   }
 }
