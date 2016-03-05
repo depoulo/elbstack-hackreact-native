@@ -12,7 +12,7 @@ export default class Profile extends Component {
     return (
       <View style={styles.container}>
         <Text>{this.props.username}</Text>
-        <Image source={require('../../images/padalese_logo.jpg')} />
+        <Image style={styles.resizeMode} source={require('../../images/padalese_logo.jpg')} />
       </View>
     )
   }
@@ -21,5 +21,11 @@ export default class Profile extends Component {
 const styles = {
   container: {
     margin: 20
-  }
+  },
+  resizeMode: {
+    width: 200,
+    height: 200,
+    borderWidth: 0.5,
+    borderColor: 'white'
+  },
 }
