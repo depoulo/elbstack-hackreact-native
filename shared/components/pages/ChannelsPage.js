@@ -3,6 +3,7 @@ import React, {
   Component,
   View,
   ScrollView,
+  ListView,
   InteractionManager,
   Switch
 } from 'react-native'
@@ -35,15 +36,23 @@ class ChannelsPage extends Component {
       channelContent = <Text>Lade Channels</Text>
     } else if (this.props.channels.list) {
       const channels = this.props.channels.list;
-      channelContent = Object.keys(channels).map(channelId => <Text key={channelId}>{channels[channelId].name}</Text>);
+      channelContent = <ListView
+        showsVerticalScrollIndicator={false}
+        keyboardShouldPersistTaps={true}
+        dataSource={
+          new ListView.DataSource({
+            rowHasChanged: (r1, r2) => r1 !== r2
+          })
+          .cloneWithRows(Object.values(channels))
+        }
+        renderRow={rowData => console.log(rowData) || <Text>{rowData.name}</Text>}
+        />
     }
 
     return (
       <View style={styles.container}>
         <ActionBar title="Available Channels"/>
-        <ScrollView showsVerticalScrollIndicator={false} keyboardShouldPersistTaps={true}>
-          {channelContent}
-        </ScrollView>
+        {channelContent}
       </View>
     )
   }
