@@ -50,6 +50,11 @@ function getGuestId() {
   return 'dev-native' //now.getTime()
 }
 
+export function joinChannel(url) {
+  
+}
+
+
 export function connectSendbird(user) {
 
   return (dispatch, getState) => {

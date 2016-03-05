@@ -15,6 +15,8 @@ import ActionBar from '../container/ActionBar'
 import LoadingIndicator from '../elements/LoadingIndicator'
 import Text from '../elements/Text'
 import IntroText from '../elements/IntroText'
+import ChannelListItem from '../elements/ChannelListItem'
+
 
 class ChannelsPage extends Component {
   state = {
@@ -29,6 +31,11 @@ class ChannelsPage extends Component {
     })
   }
 
+  handleChannelPress(id, channel_url) {
+    console.log(id);
+    console.log(channel_url);
+  }
+
   render() {
     let channelContent = <LoadingIndicator/>
 
@@ -36,6 +43,7 @@ class ChannelsPage extends Component {
       channelContent = <Text>Lade Channels</Text>
     } else if (this.props.channels.list) {
       const channels = this.props.channels.list;
+      console.log(channels);
       channelContent = <ListView
         showsVerticalScrollIndicator={false}
         keyboardShouldPersistTaps={true}
@@ -45,7 +53,7 @@ class ChannelsPage extends Component {
           })
           .cloneWithRows(Object.values(channels))
         }
-        renderRow={rowData => console.log(rowData) || <Text>{rowData.name}</Text>}
+        renderRow={rowData => console.log(rowData) || <ChannelListItem name={rowData.name} onPress={()=>this.handleChannelPress(rowData.id, rowData.channel_url)}/>}
         />
     }
 
