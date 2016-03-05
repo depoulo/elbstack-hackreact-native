@@ -18,7 +18,7 @@ import Button from '../elements/Button'
 class SendbirdConnect extends Component {
 
   state = {
-    userName: ''
+    userName: 'PaRaLeSe'
   };
 
   onConnect() {
