@@ -20,9 +20,9 @@ export default class IntroText extends Component {
               Exercises:
             </Text>
           </View>
-          <View><Text style={styles.instructions}>1. Add the team logo</Text></View>
-          <View><Text style={styles.instructions}>2. Display the username</Text></View>
-          <View><Text style={styles.instructions}>3. Toggle and display the channel list</Text></View>
+          <View><Text style={styles.instructions}>1. Add the team logo ✔</Text></View>
+          <View><Text style={styles.instructions}>2. Display the username ✔</Text></View>
+          <View><Text style={styles.instructions}>3. Toggle and display the channel list ✔</Text></View>
           <View><Text style={styles.instructions}>4. Join a channel by clicking on it</Text></View>
           <View><Text style={styles.instructions}>5. Open and show a messenger-channel</Text></View>
           <View><Text style={styles.instructions}>6. Send and display messages</Text></View>
