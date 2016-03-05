@@ -12,6 +12,7 @@ export default class Profile extends Component {
     return (
       <View style={styles.container}>
         <Text>Username</Text>
+        <Image source={require('../../images/padalese_logo.jpg')} />
       </View>
     )
   }
