@@ -38,7 +38,7 @@ class MenuContainer extends Component {
         <View style={styles.container}>
           <ScrollView style={styles.scrollContainer}>
 
-            <Profile />
+            <Profile username={this.props.sendbird.user_name} />
 
             <MenuItem
               key={'MenuChannelsList'}
@@ -127,7 +127,8 @@ export default connect(
   (state) => {
     return {
       login: state.login,
-      notifications: state.notifications
+      notifications: state.notifications,
+      sendbird: state.sendbird
     }
   },
   (dispatch) => {

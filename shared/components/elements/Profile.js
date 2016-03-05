@@ -11,7 +11,7 @@ export default class Profile extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Username</Text>
+        <Text>{this.props.username}</Text>
         <Image source={require('../../images/padalese_logo.jpg')} />
       </View>
     )
